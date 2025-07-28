@@ -53,7 +53,7 @@ Before adding more complex things, i want to add some basic mechanics :
 1. Fork this repository via the **Fork** button (top-right).  
 2. Clone your fork locally:  
    ```bash
-   git clone https://github.com/<your-username>/Last-Flicker.git
+   git clone https://github.com/ShinyIratra/Last-Flicker.git
    ```  
 3. Open Godot 3.5 (Mono), click **Import**, and select `Last-Flicker.sln`.  
 4. Create a feature branch:  
