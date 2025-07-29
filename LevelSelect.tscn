@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/menu_ui/menu.theme" type="Theme" id=1]
+[ext_resource path="res://src/menu_ui/main_menu/level_select/LevelSelect.cs" type="Script" id=2]
+[ext_resource path="res://src/levels/placeholder.png" type="Texture" id=3]
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 0.999999
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 960, 510 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 38.7878
+margin_top = 40.0
+margin_right = 792.788
+margin_bottom = 89.0
+size_flags_vertical = 0
+
+[node name="BtnBack" type="Button" parent="HBoxContainer"]
+margin_right = 115.0
+margin_bottom = 49.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="HBoxContainer"]
+margin_left = 119.0
+margin_right = 754.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+theme_type_variation = "Header3"
+text = "Level Select"
+align = 2
+
+[node name="BtnBack" type="Button" parent="."]
+margin_left = 67.0
+margin_top = 397.0
+margin_right = 291.0
+margin_bottom = 446.0
+text = "Back"
+
+[node name="BtnNext" type="Button" parent="."]
+margin_left = 569.0
+margin_top = 393.0
+margin_right = 719.0
+margin_bottom = 442.0
+rect_pivot_offset = Vector2( 92, 53 )
+text = "Next"
+align = 0
+
+[node name="BtnLaunch" type="Button" parent="."]
+margin_left = 1339.0
+margin_top = 660.0
+margin_right = 1623.0
+margin_bottom = 744.0
+rect_pivot_offset = Vector2( 92, 53 )
+text = "Next"
+align = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 185.0
+margin_top = 510.0
+margin_right = 978.0
+margin_bottom = 917.0
+rect_scale = Vector2( 0.600001, 1 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1

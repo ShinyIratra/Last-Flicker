@@ -1,38 +1,87 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/menu_ui/menu.theme" type="Theme" id=1]
 [ext_resource path="res://src/menu_ui/main_menu/level_select/LevelSelect.cs" type="Script" id=2]
+[ext_resource path="res://src/levels/placeholder.png" type="Texture" id=3]
 
 [node name="LevelSelect" type="Control"]
-anchor_right = 0.999999
+anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="Container" type="Container" parent="."]
+margin_left = 206.0
+margin_top = 97.0
+margin_right = 2106.0
+margin_bottom = 1177.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+margin_right = 1853.0
+margin_bottom = 49.0
+size_flags_vertical = 0
+
+[node name="BtnBackHome" type="Button" parent="Container/HBoxContainer"]
+margin_right = 42.0
+margin_bottom = 49.0
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TitleLabel" type="Label" parent="."]
-anchor_top = 0.0466667
-anchor_right = 1.0
-anchor_bottom = 0.266667
-margin_bottom = -1.52588e-05
-theme_type_variation = "Header1"
+[node name="Title" type="Label" parent="Container/HBoxContainer"]
+margin_left = 46.0
+margin_top = 17.0
+margin_right = 1853.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme_type_variation = "Header3"
+text = "Level Select"
+align = 2
+
+[node name="Panel" type="Panel" parent="Container"]
+margin_left = 13.0
+margin_top = 23.5
+margin_right = 1866.0
+margin_bottom = 23.5
+
+[node name="TextureRect" type="TextureRect" parent="Container/Panel"]
+margin_left = 701.0
+margin_top = 479.0
+margin_right = 1113.0
+margin_bottom = 861.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="BtnBack" type="Button" parent="Container/Panel"]
+margin_left = 491.0
+margin_top = 368.0
+margin_right = 691.0
+margin_bottom = 468.0
+text = "Back"
+
+[node name="BtnNext" type="Button" parent="Container/Panel"]
+margin_left = 1114.0
+margin_top = 370.0
+margin_right = 1314.0
+margin_bottom = 470.0
+rect_pivot_offset = Vector2( 92, 53 )
+text = "Next"
+align = 0
+
+[node name="BtnLaunch" type="Button" parent="Container/Panel"]
+margin_left = 1498.0
+margin_top = 745.0
+margin_right = 1698.0
+margin_bottom = 845.0
+rect_pivot_offset = Vector2( 92, 53 )
+text = "Launch"
+align = 0
+
+[node name="LevelName" type="Label" parent="Container/Panel"]
+margin_left = 809.0
+margin_top = 404.0
+margin_right = 1009.0
+margin_bottom = 454.0
+text = "Fefaefaef"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="LevelButtons" type="VBoxContainer" parent="."]
-anchor_left = 0.0361328
-anchor_top = 0.473333
-anchor_right = 0.229492
-anchor_bottom = 0.965
-grow_horizontal = 2
-grow_vertical = 2
-custom_constants/separation = 15
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}

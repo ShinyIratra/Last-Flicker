@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/characters/player/components/hud/HUD.theme" type="Theme" id=1]
 [ext_resource path="res://src/characters/player/components/hud/PlayerHUD.cs" type="Script" id=2]
 [ext_resource path="res://src/characters/player/components/hud/circle_crosshair.shader" type="Shader" id=3]
 [ext_resource path="res://src/characters/player/components/hud/hud_health_effect.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://fonts/Rock_Salt/RockSalt-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/NovaSquare-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://src/menu_ui/textures/smear_red.png" type="Texture" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -13,8 +16,39 @@ shader_param/widthPixles = 4
 shader_param/innerDiamiter = 300
 shader_param/color = Color( 0, 0, 0, 0.533333 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+outline_size = 1
+outline_color = Color( 0.0431373, 0.0235294, 0.0235294, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 1024, 128 )
+expand_margin_right = 30.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 4
+outline_color = Color( 0.294118, 0.0627451, 0.0627451, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 32
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.027451, 0.0235294, 0.0235294, 0.470588 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
 use_filter = true
 font_data = ExtResource( 5 )
 
@@ -43,10 +77,11 @@ __meta__ = {
 }
 
 [node name="GunAmmo" type="Label" parent="."]
-anchor_left = 0.837891
-anchor_top = 0.886667
-anchor_right = 0.989258
-anchor_bottom = 0.983333
+anchor_left = 0.786458
+anchor_top = 0.836111
+anchor_right = 0.918229
+anchor_bottom = 0.932407
+custom_fonts/font = SubResource( 3 )
 text = "123 / 456"
 align = 2
 valign = 1
@@ -55,11 +90,13 @@ __meta__ = {
 }
 
 [node name="Points" type="Label" parent="."]
-anchor_left = 0.837891
-anchor_top = 0.618333
-anchor_right = 0.989258
-anchor_bottom = 0.678333
+anchor_left = 0.836979
+anchor_top = 0.698148
+anchor_right = 0.948958
+anchor_bottom = 0.773148
 rect_pivot_offset = Vector2( 290.249, 32.2004 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 8 )
 text = "0"
 align = 2
 valign = 1
@@ -80,10 +117,15 @@ __meta__ = {
 }
 
 [node name="RoundNumber" type="Label" parent="."]
-anchor_left = 0.0126953
-anchor_top = 0.0166667
-anchor_right = 0.0859375
-anchor_bottom = 0.133333
+anchor_left = 0.0130208
+anchor_top = 0.769444
+anchor_right = 0.11875
+anchor_bottom = 0.912037
+custom_colors/font_color = Color( 0.882353, 0.121569, 0.121569, 1 )
+custom_colors/font_outline_modulate = Color( 0.65098, 0.054902, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "1"
 align = 1
 valign = 1
 __meta__ = {
@@ -91,34 +133,45 @@ __meta__ = {
 }
 
 [node name="InteractiveText" type="Label" parent="."]
-anchor_left = 0.211914
-anchor_top = 0.666667
-anchor_right = 0.788086
-anchor_bottom = 0.71
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -197.0
+margin_top = 209.0
+margin_right = 198.0
+margin_bottom = 256.0
 theme_type_variation = "LabelSmall"
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 6 )
 text = "Interative text goes here"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="HurtHeartBeat" type="AudioStreamPlayer" parent="."]
 bus = "SoundEffects"
 
 [node name="Health" type="Label" parent="."]
-anchor_left = 0.0162917
-anchor_top = 0.814407
-anchor_right = 0.167292
-anchor_bottom = 0.874407
+anchor_left = 0.0954584
+anchor_top = 0.707
+anchor_right = 0.120612
+anchor_bottom = 0.742185
 margin_left = -0.280029
-margin_top = 0.439941
+margin_top = 39.4399
 margin_right = 0.424744
-margin_bottom = 0.43988
+margin_bottom = 39.4399
 rect_pivot_offset = Vector2( 290.249, 32.2004 )
+custom_fonts/font = SubResource( 7 )
 text = "100"
+align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = 33.0
+margin_top = 785.0
+margin_right = 233.0
+margin_bottom = 802.0
+min_value = 1.0
+value = 100.0
+percent_visible = false

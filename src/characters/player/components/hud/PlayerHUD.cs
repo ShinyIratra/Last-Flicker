@@ -60,16 +60,23 @@ namespace ZombieHoardGame.PlayerCharacter
 
 		public void UpdateRoundNumber(int number)
 		{
-			float tweenHalfTime = 1.2f;
-			SceneTreeTween tween = GetTree().CreateTween();
-			tween.TweenProperty(_labelRoundNumber, "modulate", Colors.White, tweenHalfTime).From(Colors.Firebrick);
-			tween.Parallel().TweenProperty(_labelRoundNumber, "rect_scale", new Vector2(2, 2), tweenHalfTime);
+			float zoomTime = 0.2f;
+			float fadeTime = 0.6f;
+			float totalTime = zoomTime + fadeTime;
 
-			tween.TweenProperty(_labelRoundNumber, "modulate", Colors.Firebrick, tweenHalfTime).From(Colors.White);
-			tween.Parallel().TweenProperty(_labelRoundNumber, "rect_scale", new Vector2(1, 1), tweenHalfTime);
+			_labelRoundNumber.Text = number.ToString();
+
+			SceneTreeTween tween = GetTree().CreateTween();
+
+			tween.TweenProperty(_labelRoundNumber, "rect_scale", new Vector2(1, 1.3f), zoomTime).From(new Vector2(1, 1));
+			tween.TweenProperty(_labelRoundNumber, "rect_scale", new Vector2(1, 1), fadeTime);
+
+			tween.Parallel().TweenProperty(_labelRoundNumber, "modulate", new Color(0.7f, 0.7f, 0.7f), totalTime).From(Colors.White);
+
+			tween.Parallel().TweenProperty(_labelRoundNumber, "rect_position", _labelRoundNumber.RectPosition + new Vector2(0, -5), 0.1f).From(_labelRoundNumber.RectPosition);
+			tween.TweenProperty(_labelRoundNumber, "rect_position", _labelRoundNumber.RectPosition, 0.1f);
 
 			tween.Play();
-			_labelRoundNumber.Text = number.ToString();
 		}
 
 		public void UpdateInteractiveText(String text)

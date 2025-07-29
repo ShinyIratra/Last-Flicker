@@ -47,9 +47,9 @@ namespace GameGeneral
 		//////////////////////////////
 		//      Public Methods      //
 		//////////////////////////////
-		public void TransitionToLevel(String levelName)
+		public void TransitionToLevel(String levelPath)
 		{
-			ChangeSceneBackground($"{_levelDirectoryPath}{levelName}.tscn");
+			ChangeSceneBackground(levelPath);
 		}
 
 		public void TransitionToMainMenu()

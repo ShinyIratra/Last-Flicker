@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/interactables/perks/PerksBuy.cs" type="Script" id=1]
 [ext_resource path="res://src/zone/Zone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/perks/Juggernaug/Juggernaug.tres" type="Resource" id=3]
+[ext_resource path="res://src/weapons/guns/assault_rifle/AssaultRifle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/weapons/guns/revolver/Revolver.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/levels/construction/common_components/Level.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/interactables/gun_wall_buy/GunWallBuy.tscn" type="PackedScene" id=10]
@@ -87,6 +88,10 @@ navigation_layers = 3
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.6628, 0.817821, 0.169286 )
 GunPackedScene = ExtResource( 7 )
 
+[node name="AssaultRifle" parent="WallBuys" index="1" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8155, 0.634974, 0.264904 )
+GunPackedScene = ExtResource( 4 )
+
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="12"]
 transform = Transform( 0.866025, -0.353553, 0.353554, 0, 0.707107, 0.707106, -0.5, -0.612372, 0.612373, 0, 0, -25.0435 )
 light_energy = 0.5
@@ -98,10 +103,15 @@ transform = Transform( 1.29081, 0, 0, 0, 0.855656, 0, 0, 0, 0.0981159, -12.6815,
 mesh = SubResource( 101 )
 material = SubResource( 102 )
 
-[node name="PlayerSpawnPoint" type="Position3D" parent="." index="14"]
+[node name="CSGMesh2" type="CSGMesh" parent="." index="14"]
+transform = Transform( 1.66619, 0, 0, 0, 0.732147, 0, 0, 0, 0.00962673, -20.05, 0.647392, -0.0106802 )
+mesh = SubResource( 101 )
+material = SubResource( 102 )
+
+[node name="PlayerSpawnPoint" type="Position3D" parent="." index="15"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99131, 0.943695, -10.7659 )
 
-[node name="Perks" type="Node" parent="." index="15"]
+[node name="Perks" type="Node" parent="." index="16"]
 
 [node name="Juggernaut" type="CSGMesh" parent="Perks" index="0"]
 transform = Transform( -1.13498e-08, 0, 0.780972, 0, 1.17062, 0, -0.259654, 0, -3.41374e-08, 0.008, 1.22491, 10 )

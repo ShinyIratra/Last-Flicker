@@ -4,50 +4,57 @@ using System;
 
 namespace UI.MainMenu
 {
-    public class Home : MultiPage.Page
-    {
-        [Signal]
-        public delegate void PlayLevelRequested(String levelName);
+	public class Home : MultiPage.Page
+	{
+		[Signal]
+		public delegate void PlayLevelRequested();
 
-        private void OnBtnPlayPressed()
-        {
-            if(IsActive)
-            {
-                EmitSignal(nameof(PlayLevelRequested), "Level1");
-            }
-        }
+		private Button _btnPlay;
 
-        private void OnBtnExitPressed()
-        {
-            if(IsActive)
-            {
-                GetTree().Quit();
-            }
-        }
+		public override void _Ready()
+		{
+			_btnPlay = GetNode<Button>("Buttons/BtnPlay");
+		}
 
-        private void OnBtnSettingsPressed()
-        {
-            if(IsActive)
-            {
-                EmitSignal(nameof(ChangePageRequested), "SettingsPage");
-            }
-        }
+		private void OnBtnPlayPressed()
+		{
+			if (IsActive)
+			{
+				EmitSignal(nameof(ChangePageRequested), "LevelSelect");
+			}
+		}
 
-        private void OnBtnControlsPressed()
-        {
-            if(IsActive)
-            {
-                EmitSignal(nameof(ChangePageRequested), "ControlsPage");
-            }
-        }
+		private void OnBtnExitPressed()
+		{
+			if(IsActive)
+			{
+				GetTree().Quit();
+			}
+		}
 
-        private void OnBtnCreditsPressed()
-        {
-            if(IsActive)
-            {
-                EmitSignal(nameof(ChangePageRequested), "CreditsPage");
-            }
-        }
-    }
+		private void OnBtnSettingsPressed()
+		{
+			if(IsActive)
+			{
+				EmitSignal(nameof(ChangePageRequested), "SettingsPage");
+			}
+		}
+
+		private void OnBtnControlsPressed()
+		{
+			if(IsActive)
+			{
+				EmitSignal(nameof(ChangePageRequested), "ControlsPage");
+			}
+		}
+
+		private void OnBtnCreditsPressed()
+		{
+			if(IsActive)
+			{
+				EmitSignal(nameof(ChangePageRequested), "CreditsPage");
+			}
+		}
+	}
 }
 
