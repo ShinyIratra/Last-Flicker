@@ -1226,6 +1226,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08465, 0, 22.8032 )
 
 [node name="BoardedWindow2" parent="Zones/Ground0" index="3" instance=ExtResource( 16 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.93206, 0, -4.09827 )
+visible = false
 
 [node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow2" index="12" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00505, 0, 22.3752 )
