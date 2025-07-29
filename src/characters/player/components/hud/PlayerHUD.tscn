@@ -53,6 +53,7 @@ anchor_left = 0.837891
 anchor_top = 0.618333
 anchor_right = 0.989258
 anchor_bottom = 0.678333
+rect_pivot_offset = Vector2( 290.249, 32.2004 )
 text = "0"
 align = 2
 valign = 1
@@ -67,19 +68,6 @@ anchor_right = 0.536133
 anchor_bottom = 0.546667
 rect_clip_content = true
 value = 50.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-visible = false
-anchor_left = 0.0117188
-anchor_top = 0.965
-anchor_right = 0.31543
-anchor_bottom = 0.98
-step = 0.1
-value = 10.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": true
@@ -111,3 +99,19 @@ __meta__ = {
 
 [node name="HurtHeartBeat" type="AudioStreamPlayer" parent="."]
 bus = "SoundEffects"
+
+[node name="Health" type="Label" parent="."]
+anchor_left = 0.0162917
+anchor_top = 0.814407
+anchor_right = 0.167292
+anchor_bottom = 0.874407
+margin_left = -0.280029
+margin_top = 0.439941
+margin_right = 0.424744
+margin_bottom = 0.43988
+rect_pivot_offset = Vector2( 290.249, 32.2004 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}

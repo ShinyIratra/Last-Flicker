@@ -65,12 +65,21 @@ namespace ZombieHoardGame.PlayerCharacter
 
 
         //////////////////////////////
+        // Getter and Setters       //
+        //////////////////////////////
+
+        public Health GetHealth()
+        {
+            return _health;    
+        }
+
+        //////////////////////////////
         // Engine Callback Methods  //
         //////////////////////////////
         public override void _Ready()
         {
             GetNode<Viewport>("CanvasLayer/ViewportContainer/GunViewport").Size = OS.WindowSize;
-            
+
             CacheNodeReferences();
             ConnectComponentSignals();
             SupplyReferencesForStates();
@@ -408,12 +417,29 @@ namespace ZombieHoardGame.PlayerCharacter
             }
         }
 
+        private void UsePerksBuy(PerksBuy perksBuy)
+        {
+            int useCost = -1;
+            perksBuy.Use(_points, this, out useCost);
+
+            if (useCost != -1)
+            {
+                IncrementPoints(-useCost);
+                // Optionnel : feedback HUD ou autre ici
+                _hud.UpdateHealthValue((int)_health.Points);
+            }
+        }
+
         private void Interact(Godot.Object interactiveObject)
         {
             // TODO: Move interact code off the player and onto the interactive objects
             if (interactiveObject is GunWallBuy && _timerSwitchGun.IsStopped() && _timerReload.IsStopped())
             {
                 UseGunWallBuy((GunWallBuy)interactiveObject);
+            }
+            else if (interactiveObject is PerksBuy)
+            {
+                UsePerksBuy((PerksBuy)interactiveObject);
             }
             else if (interactiveObject is Obstruction)
             {

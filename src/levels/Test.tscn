@@ -1,0 +1,114 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://src/interactables/perks/PerksBuy.cs" type="Script" id=1]
+[ext_resource path="res://src/zone/Zone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/perks/Juggernaug/Juggernaug.tres" type="Resource" id=3]
+[ext_resource path="res://src/weapons/guns/revolver/Revolver.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/levels/construction/common_components/Level.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/interactables/gun_wall_buy/GunWallBuy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/debug/materials/basic_grid_1_orange.png" type="Texture" id=13]
+[ext_resource path="res://src/interactables/boarded_window/BoardedWindow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/interactables/boarded_window/SpawnPoint.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/interactables/zone_effect_fortify/ZoneEffectFortify.tscn" type="PackedScene" id=36]
+
+[sub_resource type="SpatialMaterial" id=104]
+albedo_color = Color( 0.57, 0.57, 0.57, 1 )
+albedo_texture = ExtResource( 13 )
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id=105]
+
+[sub_resource type="ShaderMaterial" id=106]
+
+[sub_resource type="NavigationMesh" id=107]
+vertices = PoolVector3Array( -71.3329, 0.0199999, -62.0629, -80.0829, 0.0199999, -62.0629, -80.0829, 0.0199999, -54.3129, -80.0829, 0.0199999, 54.1871, -80.0829, 0.0199999, 62.1871, -71.3329, 0.0199999, 62.1871, 61.1671, 0.0199999, -54.3129, 61.1671, 0.0199999, -62.0629, 52.1671, 0.0199999, -62.0629, 52.1671, 0.0199999, 62.1871, 61.1671, 0.0199999, 62.1871, 61.1671, 0.0199999, 54.1871, -71.3329, 0.0199999, -62.0629, -80.0829, 0.0199999, -54.3129, -80.0829, 0.0199999, -46.5629, 61.1671, 0.0199999, -46.5629, 61.1671, 0.0199999, -54.3129, 52.1671, 0.0199999, -62.0629, -80.0829, 0.0199999, 46.4371, -80.0829, 0.0199999, 54.1871, -71.3329, 0.0199999, 62.1871, 52.1671, 0.0199999, 62.1871, 61.1671, 0.0199999, 54.1871, 61.1671, 0.0199999, 46.4371, -62.5829, 0.0199999, -62.0629, -71.3329, 0.0199999, -62.0629, -80.0829, 0.0199999, -46.5629, -80.0829, 0.0199999, -38.8129, -80.0829, 0.0199999, 46.4371, -71.3329, 0.0199999, 62.1871, -62.5829, 0.0199999, 62.1871, -80.0829, 0.0199999, 38.6871, 61.1671, 0.0199999, -46.5629, 52.1671, 0.0199999, -62.0629, 43.4171, 0.0199999, -62.0629, 61.1671, 0.0199999, -38.8129, 43.4171, 0.0199999, 62.1871, 52.1671, 0.0199999, 62.1871, 61.1671, 0.0199999, 46.4371, 61.1671, 0.0199999, 38.6871, 25.6671, 0.0199999, 62.1871, 61.1671, 0.0199999, 23.1871, 61.1671, 0.0199999, 15.4371, 16.6671, 0.0199999, 62.1871, -80.0829, 0.0199999, -0.062851, -80.0829, 0.0199999, 7.68715, -27.3329, 0.0199999, 62.1871, -18.5829, 0.0199999, 62.1871, -80.0829, 0.0199999, -0.062851, -18.5829, 0.0199999, 62.1871, -9.5829, 0.0199999, 62.1871, -27.3329, 0.0199999, -62.0629, -80.0829, 0.0199999, -7.81285, -80.0829, 0.0199999, -0.062851, -18.5829, 0.0199999, -62.0629, -53.8329, 0.0199999, -62.0629, -62.5829, 0.0199999, -62.0629, -80.0829, 0.0199999, -38.8129, -80.0829, 0.0199999, -31.0629, -80.0829, 0.0199999, 38.6871, -62.5829, 0.0199999, 62.1871, -53.8329, 0.0199999, 62.1871, -80.0829, 0.0199999, 30.9371, 61.1671, 0.0199999, -38.8129, 43.4171, 0.0199999, -62.0629, 34.4171, 0.0199999, -62.0629, 61.1671, 0.0199999, -31.0629, 34.4171, 0.0199999, 62.1871, 43.4171, 0.0199999, 62.1871, 61.1671, 0.0199999, 38.6871, 61.1671, 0.0199999, 30.9371, 61.1671, 0.0199999, -0.062851, 61.1671, 0.0199999, -7.81285, 7.9171, 0.0199999, -62.0629, -0.832901, 0.0199999, -62.0629, -36.0829, 0.0199999, -62.0629, -80.0829, 0.0199999, -15.5629, -80.0829, 0.0199999, -7.81285, -27.3329, 0.0199999, -62.0629, -80.0829, 0.0199999, 7.68715, -80.0829, 0.0199999, 15.4371, -36.0829, 0.0199999, 62.1871, -27.3329, 0.0199999, 62.1871, 61.1671, 0.0199999, -7.81285, 61.1671, 0.0199999, -15.5629, 16.6671, 0.0199999, -62.0629, 7.9171, 0.0199999, -62.0629, -53.8329, 0.0199999, -62.0629, -80.0829, 0.0199999, -31.0629, -80.0829, 0.0199999, -23.3129, -44.8329, 0.0199999, -62.0629, -80.0829, 0.0199999, 23.1871, -80.0829, 0.0199999, 30.9371, -53.8329, 0.0199999, 62.1871, -44.8329, 0.0199999, 62.1871, 61.1671, 0.0199999, -23.3129, 61.1671, 0.0199999, -31.0629, 34.4171, 0.0199999, -62.0629, 25.6671, 0.0199999, -62.0629, 34.4171, 0.0199999, 62.1871, 61.1671, 0.0199999, 30.9371, 61.1671, 0.0199999, 23.1871, 25.6671, 0.0199999, 62.1871, 16.6671, 0.0199999, 62.1871, 61.1671, 0.0199999, 15.4371, 61.1671, 0.0199999, 7.68715, 7.9171, 0.0199999, 62.1871, 61.1671, 0.0199999, -0.062851, -0.832901, 0.0199999, -62.0629, -9.5829, 0.0199999, -62.0629, -80.0829, 0.0199999, -0.062851, -9.5829, 0.0199999, 62.1871, -0.832901, 0.0199999, 62.1871, 7.9171, 0.0199999, 62.1871, 61.1671, 0.0199999, 7.68715, 61.1671, 0.0199999, -0.062851, -0.832901, 0.0199999, 62.1871, -9.5829, 0.0199999, -62.0629, -18.5829, 0.0199999, -62.0629, -80.0829, 0.0199999, -0.062851, -44.8329, 0.0199999, -62.0629, -80.0829, 0.0199999, -23.3129, -80.0829, 0.0199999, -15.5629, -36.0829, 0.0199999, -62.0629, 61.1671, 0.0199999, -15.5629, 61.1671, 0.0199999, -23.3129, 25.6671, 0.0199999, -62.0629, 16.6671, 0.0199999, -62.0629, -80.0829, 0.0199999, 15.4371, -80.0829, 0.0199999, 23.1871, -44.8329, 0.0199999, 62.1871, -36.0829, 0.0199999, 62.1871 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 17, 16, 15 ), PoolIntArray( 20, 19, 18 ), PoolIntArray( 23, 22, 21 ), PoolIntArray( 25, 24, 26 ), PoolIntArray( 26, 24, 27 ), PoolIntArray( 29, 28, 30 ), PoolIntArray( 30, 28, 31 ), PoolIntArray( 33, 32, 34 ), PoolIntArray( 34, 32, 35 ), PoolIntArray( 37, 36, 38 ), PoolIntArray( 38, 36, 39 ), PoolIntArray( 41, 40, 42 ), PoolIntArray( 42, 40, 43 ), PoolIntArray( 45, 44, 46 ), PoolIntArray( 46, 44, 47 ), PoolIntArray( 50, 49, 48 ), PoolIntArray( 52, 51, 53 ), PoolIntArray( 53, 51, 54 ), PoolIntArray( 57, 56, 58 ), PoolIntArray( 58, 56, 55 ), PoolIntArray( 59, 62, 60 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 63, 66, 64 ), PoolIntArray( 64, 66, 65 ), PoolIntArray( 69, 68, 70 ), PoolIntArray( 70, 68, 67 ), PoolIntArray( 72, 71, 73 ), PoolIntArray( 73, 71, 74 ), PoolIntArray( 76, 75, 77 ), PoolIntArray( 77, 75, 78 ), PoolIntArray( 80, 79, 81 ), PoolIntArray( 81, 79, 82 ), PoolIntArray( 84, 83, 85 ), PoolIntArray( 85, 83, 86 ), PoolIntArray( 88, 87, 89 ), PoolIntArray( 89, 87, 90 ), PoolIntArray( 92, 91, 93 ), PoolIntArray( 93, 91, 94 ), PoolIntArray( 96, 95, 97 ), PoolIntArray( 97, 95, 98 ), PoolIntArray( 100, 99, 101 ), PoolIntArray( 101, 99, 102 ), PoolIntArray( 104, 103, 105 ), PoolIntArray( 105, 103, 106 ), PoolIntArray( 108, 107, 109 ), PoolIntArray( 109, 107, 112 ), PoolIntArray( 109, 112, 111 ), PoolIntArray( 109, 111, 110 ), PoolIntArray( 114, 113, 115 ), PoolIntArray( 115, 113, 116 ), PoolIntArray( 119, 118, 117 ), PoolIntArray( 121, 120, 122 ), PoolIntArray( 122, 120, 123 ), PoolIntArray( 125, 124, 126 ), PoolIntArray( 126, 124, 127 ), PoolIntArray( 129, 128, 130 ), PoolIntArray( 130, 128, 131 ) ]
+geometry_parsed_geometry_type = 2
+geometry_source_geometry_mode = 2
+geometry_source_group_name = "nav_g0"
+cell_height = 0.01
+agent_height = 1.8
+agent_radius = 0.25
+agent_max_climb = 0.2
+
+[sub_resource type="CubeMesh" id=101]
+
+[sub_resource type="ShaderMaterial" id=102]
+
+[sub_resource type="CubeMesh" id=108]
+
+[sub_resource type="ShaderMaterial" id=109]
+
+[node name="Test" instance=ExtResource( 8 )]
+_buildingMode = false
+_playerInitialPoints = 100
+
+[node name="HoardDirector" parent="." index="8"]
+_initialZombieCount = 30
+_newZombiesPerRound = 0
+_zombieHealthGainPerRound = 0.01
+_powerUpDropChance = 0.15
+
+[node name="Ground0" parent="Zones" index="0" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.611117, 0, 0, 0 )
+_activateOnReady = true
+
+[node name="BoardedWindow1" parent="Zones/Ground0" index="1" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 1.00986e-07, 0, -1.15514, 1.9307, 0, -4.09218 )
+
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44938, 0, 24.7359 )
+
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08465, 0, 22.8032 )
+
+[node name="CollisionFloor" type="CSGCombiner" parent="Zones/Ground0" index="2" groups=["nav_g0", "nav_inside"]]
+material_override = SubResource( 104 )
+use_collision = true
+
+[node name="Floor1" type="CSGBox" parent="Zones/Ground0/CollisionFloor" index="0"]
+transform = Transform( 20.238, -4.42315e-07, 3.65704e-06, 2.18557e-08, 1, 9.55343e-16, -1.87668e-06, 3.10944e-14, 10.3855, -6.5, -0.25, -2 )
+material_override = SubResource( 105 )
+material_overlay = SubResource( 106 )
+width = 7.0
+height = 0.5
+depth = 12.0
+
+[node name="ZoneEffectFortify" parent="Zones/Ground0" index="3" instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 3.89755 )
+
+[node name="NavMeshInst" type="NavigationMeshInstance" parent="Zones/Ground0" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2 )
+navmesh = SubResource( 107 )
+navigation_layers = 3
+
+[node name="Revolver" parent="WallBuys" index="0" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.6628, 0.817821, 0.169286 )
+GunPackedScene = ExtResource( 7 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="12"]
+transform = Transform( 0.866025, -0.353553, 0.353554, 0, 0.707107, 0.707106, -0.5, -0.612372, 0.612373, 0, 0, -25.0435 )
+light_energy = 0.5
+shadow_enabled = true
+shadow_bias = -0.2
+
+[node name="CSGMesh" type="CSGMesh" parent="." index="13"]
+transform = Transform( 1.29081, 0, 0, 0, 0.855656, 0, 0, 0, 0.0981159, -12.6815, 0.740129, -0.00258803 )
+mesh = SubResource( 101 )
+material = SubResource( 102 )
+
+[node name="PlayerSpawnPoint" type="Position3D" parent="." index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99131, 0.943695, -10.7659 )
+
+[node name="Perks" type="Node" parent="." index="15"]
+
+[node name="Juggernaut" type="CSGMesh" parent="Perks" index="0"]
+transform = Transform( -1.13498e-08, 0, 0.780972, 0, 1.17062, 0, -0.259654, 0, -3.41374e-08, 0.008, 1.22491, 10 )
+mesh = SubResource( 108 )
+material = SubResource( 109 )
+
+[node name="ZoneEffectFortify" parent="Perks/Juggernaut" index="0" instance=ExtResource( 36 )]
+transform = Transform( -1.68345e-07, 0, -3.85128, 0, 0.854248, 0, 1.28046, 0, -5.59703e-08, 1.38081, 0.234995, -0.0102436 )
+script = ExtResource( 1 )
+Perk = ExtResource( 3 )
